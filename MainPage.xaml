@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Convertor.MainPage"
+             Title="Конвертер валют">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Выберите дату:" FontSize="Medium" />
+            <DatePicker Date="{Binding SelectedDate}" />
+
+           
+
+            <Label Text="Выберите валюту:" FontSize="Medium" />
+            <Picker Title="Из валюты" ItemsSource="{Binding Currencies}" SelectedItem="{Binding FromCurrency, Mode=TwoWay}" ItemDisplayBinding="{Binding CharCode}" HorizontalOptions="FillAndExpand" />
+
+            <Picker Title="В валюту" ItemsSource="{Binding Currencies}" SelectedItem="{Binding ToCurrency, Mode=TwoWay}" ItemDisplayBinding="{Binding CharCode}" HorizontalOptions="FillAndExpand" />
+            
+
+            <Label Text="Результат:" FontSize="Medium" Margin="0,10,10,10" />
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Сумма в исходной валюте: " FontSize="Medium"   />
+                <Entry Text="{Binding Amount, Mode=TwoWay}"  />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Сумма в целевой валюте: " FontSize="Medium" />
+                <Entry Text="{Binding ConvertedAmount}"  />
+            </StackLayout>
+
+            <Label Text="{Binding InfoMessage}"  FontSize="Small" TextColor="Black"  />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
